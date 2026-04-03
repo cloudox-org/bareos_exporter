@@ -1,0 +1,18 @@
+# -*- mode: conf -*-
+
+[Unit]
+Description=Prometheus exporter for BareOS data recovery system
+Documentation=https://github.com/vierbergenlars/bareos_exporter
+After=network.target
+
+[Service]
+EnvironmentFile=-/etc/default/bareos_exporter
+User=prometheus
+ExecStart=/usr/bin/bareos_exporter $BAREOS_EXPORTER_OPTS
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5s
+
+
+[Install]
+WantedBy=multi-user.target

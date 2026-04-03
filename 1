@@ -2,22 +2,22 @@
 %global user prometheus
 %global group prometheus
 
-Name: artifactory_exporter
-Version: 1.16.1
+Name: bareos_exporter
+Version: 0.6.0
 Release: 1%{?dist}
-Summary: Prometheus exporter for JFrog Artifactory stats.
-License: ASL 2.0
-URL:     https://github.com/peimanja/artifactory_exporter
+Summary: Prometheus exporter for BareOS data recovery system
+License: MIT
+URL:     https://github.com/vierbergenlars/bareos_exporter
 
-Source0: https://github.com/peimanja/artifactory_exporter/releases/download/v%{version}/%{name}-v%{version}-linux-amd64.tar.gz
-Source1: %{name}.unit
-Source2: %{name}.default
+Source0: https://github.com/vierbergenlars/bareos_exporter/releases/download/v%{version}/%{name}-v%{version}-linux-amd64.tar.gz
+Source1: autogen_%{name}.unit
+Source2: autogen_%{name}.default
 
 %{?systemd_requires}
 Requires(pre): shadow-utils
 
 %description
-Collects metrics about an Artifactory system
+Prometheus exporter for BareOS data recovery system.
 
 %prep
 %setup -q -D -c %{name}-v%{version}-linux-amd64
@@ -54,5 +54,5 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
-* Thu Apr 02 2026 Ivan Garcia <igarcia@cloudox.org> - 1.16.1
-- Initial packaging for the 1.16.1 branch
+* Tue Mar 31 2026 Ivan Garcia <igarcia@cloudox.org> - 0.19.1
+- Initial packaging for the 0.19.1 branch

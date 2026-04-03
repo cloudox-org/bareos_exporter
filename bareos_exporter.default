@@ -1,0 +1,1 @@
+BAREOS_EXPORTER_OPTS="-dsn=postgres://bareos:bareospw@localhost/bareos?readOnly=true"
